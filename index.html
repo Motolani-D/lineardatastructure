@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <script>
+         var total=0;
+const set1 = [3, 1, 7, 9];
+const set2 = [2, 4, 1, 9, 3];
+
+
+let result = set2.filter(number => !set1.includes (number))
+
+let result2 = set1.filter(number => !set2.includes (number))
+
+const mergedArr = [...result, ...result2];
+console.log('merger' + mergedArr)
+
+const sum = mergedArr.reduce(add,0); // with initial value to avoid when the array is empty
+function add(accumulator, a) {
+    return accumulator + a;
+    // for (let i = 0; i < merge.length; i++) {
+    // sum += merge[i];
+}
+
+
+
+console.log(sum); // 13
+
+/*****************Question 1 - Solution two***********************************/
+
+const newArr = [...set1, ...set2];
+sumTotalTwo = 0
+
+console.log('new' + newArr)
+
+var uniq = newArr.map((newArr) => {
+    return {
+      count: 1,
+      newArr: newArr
+    }
+  })
+  .reduce((a, b) => {
+    a[b.newArr] = (a[b.newArr] || 0) + b.count
+    return a
+  }, {})
+
+var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
+
+console.log(duplicates)
+
+for (let i = 0; i < duplicates.length; i++) {
+  sumTotalTwo += duplicates[i];
+
+
+//  let firstArray = ["One", "Two", "Three", "Four", "Five"];
+// let secondArray = ["Three", "Four"];
+
+// let map = {};
+// set1.forEach(i => map[i] = false);
+// set2.forEach(i => map[i] === false && (map[i] = true));
+// let finalArray = Object.keys(map).map(k => ({ name: k, matched: map[k] }));
+// console.log(finalArray);
+
+
+/********************Question 2- Solution 1*****************************************/
+var sumAll =0;
+  const setOne=[12, 13, 6, 10];
+  const setTwo=[13, 10, 16, 15];
+  var sumArr = [];  // this array will hold all the duplicate values found
+
+  for(var k=0 ; k<setOne.length ; k++) {
+    for(var j=0 ; j<setTwo.length ; j++) {
+      if(setOne[k] == setTwo[j]) { // I want to check if any value intersect in the two arrays
+        sumArr.push(setOne[k],setTwo[j]);// I want to push the duplicate to the empty arr array I defined
+      }
+    }
+  }
+  console.log('arr' + sumArr)
+  //Fetch only unique values
+ for (let i = 0; i < sumArr.length; i++) {
+     sumAll += sumArr[i];
+}
+}
+     </script>
+ </body>
+ </html>
+ 
+ 
